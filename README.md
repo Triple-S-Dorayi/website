@@ -1,1 +1,444 @@
 # website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triples FC - Official Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0b130f',
+                        brandCard: '#131e18',
+                        brandCardHover: '#1a2a22',
+                        brandGreen: '#10b981',
+                        brandGreenHover: '#059669',
+                        brandGreenLight: '#34d399'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background-color: #0b130f; color: #f3f4f6; font-family: system-ui, -apple-system, sans-serif; }
+        .screen { display: none; }
+        .screen.active { display: block; }
+        /* Custom scrollbar for clean dark UI */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0b130f; }
+        ::-webkit-scrollbar-thumb { background: #1a2a22; border-radius: 3px; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Navigation Bar (Global) -->
+    <header class="bg-brandCard border-b border-emerald-900/30 sticky top-0 z-50 px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="switchScreen('main-view')">
+            <div class="w-9 h-9 rounded-full bg-emerald-900/50 border border-emerald-500/50 flex items-center justify-center text-emerald-400 font-bold">T</div>
+            <div>
+                <h1 class="font-bold text-sm tracking-wider uppercase">Triples FC</h1>
+                <p class="text-[10px] text-emerald-400">Official Club Hub</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-3">
+            <button onclick="switchScreen('shop-page')" class="text-xs bg-emerald-950/60 border border-emerald-800/50 px-3 py-1.5 rounded-lg text-emerald-300 hover:bg-emerald-900/50 transition">
+                <i class="fa-solid fa-store mr-1"></i> Shop
+            </button>
+            <button onclick="switchScreen('my-profile')" class="text-xs bg-emerald-600 px-3 py-1.5 rounded-lg text-white font-medium hover:bg-emerald-500 transition">
+                <i class="fa-solid fa-user mr-1"></i> Profile
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto w-full p-4 flex-grow">
+
+        <!-- 1. MAIN VIEW SCREEN -->
+        <div id="screen-main-view" class="screen active space-y-6">
+            <!-- Hero Banner -->
+            <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-emerald-950 via-brandCard to-emerald-900/40 p-6 border border-emerald-800/40 shadow-xl">
+                <div class="absolute top-2 right-2 bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full uppercase tracking-wider font-semibold border border-emerald-500/30">Live Match Day</div>
+                <div class="max-w-md space-y-3">
+                    <span class="text-xs text-emerald-400 font-semibold tracking-wide uppercase">Welcome to Triples FC</span>[span_2](start_span)[span_2](end_span)
+                    <h2 class="text-2xl font-black text-white leading-tight">DOMINATE THE PITCH TOGETHER</h2>
+                    <p class="text-xs text-gray-300">Join the official community, grab season tickets, official match jerseys, and follow live tactical feeds.</p>
+                    <div class="flex space-x-3 pt-2">
+                        <button onclick="switchScreen('membership-signup')" class="bg-emerald-500 hover:bg-emerald-600 text-brandDark text-xs font-bold px-4 py-2 rounded-xl transition shadow-lg shadow-emerald-500/20">Join Triples FC</button>[span_3](start_span)[span_3](end_span)
+                        <button onclick="switchScreen('match-centre')" class="bg-brandCardHover hover:bg-emerald-950 text-emerald-400 border border-emerald-800/50 text-xs font-medium px-4 py-2 rounded-xl transition">Match Centre</button>[span_4](start_span)[span_4](end_span)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest News Section -->
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-sm font-bold tracking-wide uppercase text-gray-200">Latest News</h3>[span_5](start_span)[span_5](end_span)
+                    <span class="text-xs text-emerald-400 cursor-pointer hover:underline">View All</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div onclick="switchScreen('match-centre')" class="bg-brandCard p-3 rounded-xl border border-emerald-900/30 hover:border-emerald-600/50 cursor-pointer transition flex space-x-3 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-emerald-950 flex-shrink-0 flex items-center justify-center text-emerald-500 font-bold text-lg">⚽</div>
+                        <div>
+                            <span class="text-[10px] text-emerald-400 font-semibold">Match Preview</span>
+                            <h4 class="text-xs font-bold text-white mt-0.5">Triples FC vs Plateau United - Tactical Breakdown</h4>
+                            <span class="text-[10px] text-gray-400">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div onclick="switchScreen('shop-page')" class="bg-brandCard p-3 rounded-xl border border-emerald-900/30 hover:border-emerald-600/50 cursor-pointer transition flex space-x-3 items-center">
+                        <div class="w-16 h-16 rounded-lg bg-emerald-950 flex-shrink-0 flex items-center justify-center text-emerald-500 font-bold text-lg">👕</div>
+                        <div>
+                            <span class="text-[10px] text-emerald-400 font-semibold">Store Update</span>
+                            <h4 class="text-xs font-bold text-white mt-0.5">New Home & Away Kits Released for 2026 Season</h4>
+                            <span class="text-[10px] text-gray-400">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Squad Lineup Teaser -->
+            <div class="space-y-3">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-sm font-bold tracking-wide uppercase text-gray-200">Our Squad</h3>[span_6](start_span)[span_6](end_span)
+                    <button onclick="switchScreen('lineup-tactics')" class="text-xs text-emerald-400 hover:underline">Full Lineup & Tactics →</button>[span_7](start_span)[span_7](end_span)
+                </div>
+                <div class="grid grid-cols-4 gap-2">
+                    <div class="bg-brandCard p-3 rounded-xl text-center border border-emerald-900/30">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-emerald-900/50 mb-1 flex items-center justify-center text-emerald-400 text-xs font-bold">GK</div>
+                        <p class="text-[11px] font-bold text-white truncate">A. Usman</p>
+                        <p class="text-[9px] text-emerald-400">No. 1</p>
+                    </div>
+                    <div class="bg-brandCard p-3 rounded-xl text-center border border-emerald-900/30">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-emerald-900/50 mb-1 flex items-center justify-center text-emerald-400 text-xs font-bold">DEF</div>
+                        <p class="text-[11px] font-bold text-white truncate">K. Ibrahim</p>
+                        <p class="text-[9px] text-emerald-400">No. 4</p>
+                    </div>
+                    <div class="bg-brandCard p-3 rounded-xl text-center border border-emerald-900/30">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-emerald-900/50 mb-1 flex items-center justify-center text-emerald-400 text-xs font-bold">MID</div>
+                        <p class="text-[11px] font-bold text-white truncate">S. Bello</p>
+                        <p class="text-[9px] text-emerald-400">No. 10</p>
+                    </div>
+                    <div class="bg-brandCard p-3 rounded-xl text-center border border-emerald-900/30">
+                        <div class="w-10 h-10 mx-auto rounded-full bg-emerald-900/50 mb-1 flex items-center justify-center text-emerald-400 text-xs font-bold">ATT</div>
+                        <p class="text-[11px] font-bold text-white truncate">M. Musa</p>
+                        <p class="text-[9px] text-emerald-400">No. 9</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. MEMBERSHIP SIGNUP JOURNEY -->
+        <div id="screen-membership-signup" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400"><i class="fa-solid fa-user-plus mr-2"></i>Membership Signup</h3>[span_8](start_span)[span_8](end_span)
+                <button onclick="switchScreen('main-view')" class="text-xs text-gray-400 hover:text-white">Cancel</button>
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-[11px] font-semibold text-gray-300 mb-1">Email Address</label>
+                    <input type="email" placeholder="name@example.com" class="w-full bg-brandDark border border-emerald-900/60 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-gray-300 mb-1">Password</label>
+                    <input type="password" placeholder="••••••••" class="w-full bg-brandDark border border-emerald-900/60 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="switchScreen('tier-selection')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark text-xs font-bold py-2.5 rounded-xl transition mt-2">Create Account & Select Tier</button>[span_9](start_span)[span_9](end_span)
+            </div>
+        </div>
+
+        <!-- 2b. TIER SELECTION SCREEN -->
+        <div id="screen-tier-selection" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400">Choose Tier Level</h3>[span_10](start_span)[span_10](end_span)
+                <button onclick="switchScreen('membership-signup')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="space-y-3">
+                <div class="bg-brandDark p-3 rounded-xl border border-emerald-800/40 flex justify-between items-center">
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Triples Fan Tier</h4>
+                        <p class="text-[10px] text-gray-400">Standard match updates & forum access</p>
+                    </div>
+                    <button onclick="switchScreen('secure-checkout')" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs px-3 py-1.5 rounded-lg font-medium">Select Free</button>
+                </div>
+                <div class="bg-brandDark p-3 rounded-xl border border-emerald-500/50 flex justify-between items-center shadow-md">
+                    <div>
+                        <h4 class="text-xs font-bold text-emerald-400">VIP Elite Tier</h4>
+                        <p class="text-[10px] text-gray-400">Priority tickets, 20% store discount</p>
+                    </div>
+                    <button onclick="switchScreen('secure-checkout')" class="bg-emerald-500 hover:bg-emerald-600 text-brandDark text-xs px-3 py-1.5 rounded-lg font-bold">₦5,000/mo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2c. SECURE CHECKOUT SCREEN -->
+        <div id="screen-secure-checkout" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400"><i class="fa-solid fa-lock mr-2"></i>Secure Checkout</h3>[span_11](start_span)[span_11](end_span)
+                <button onclick="switchScreen('tier-selection')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div class="bg-brandDark p-3 rounded-xl space-y-1">
+                    <div class="flex justify-between text-gray-300"><span>VIP Elite Tier (Monthly)</span><span>₦5,000</span></div>
+                    <div class="flex justify-between text-gray-300"><span>Tax / Fees</span><span>₦0</span></div>
+                    <div class="border-t border-emerald-900/50 pt-1 flex justify-between font-bold text-white"><span>Total Due</span><span class="text-emerald-400">₦5,000</span></div>
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-gray-300 mb-1">Card Number / Payment Method</label>
+                    <input type="text" placeholder="4123 4567 8910 1112" class="w-full bg-brandDark border border-emerald-900/60 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="switchScreen('welcome-family')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold py-2.5 rounded-xl transition">Complete Payment</button>[span_12](start_span)[span_12](end_span)
+            </div>
+        </div>
+
+        <!-- 2d. WELCOME TO THE FAMILY -->
+        <div id="screen-welcome-family" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 text-center space-y-4 shadow-xl">
+            <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 border border-emerald-500 flex items-center justify-center text-emerald-400 text-2xl">🎉</div>
+            <h3 class="text-lg font-bold text-white">Welcome to the Family!</h3>[span_13](start_span)[span_13](end_span)
+            <p class="text-xs text-gray-300">Your VIP Elite membership has been activated successfully. Your digital season ticket is ready.</p>
+            <button onclick="switchScreen('my-profile')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold py-2.5 rounded-xl text-xs transition">Go to My Profile</button>
+        </div>
+
+        <!-- 3. MATCH CENTRE JOURNEY -->
+        <div id="screen-match-centre" class="screen space-y-4 max-w-xl mx-auto">
+            <div class="flex justify-between items-center bg-brandCard p-4 rounded-xl border border-emerald-900/30">
+                <button onclick="switchScreen('main-view')" class="text-xs text-emerald-400 hover:underline"><i class="fa-solid fa-arrow-left mr-1"></i> Back</button>[span_14](start_span)[span_14](end_span)
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Match Centre Journey</span>[span_15](start_span)[span_15](end_span)
+                <button onclick="switchScreen('live-commentary')" class="text-xs bg-emerald-950 text-emerald-300 px-2 py-1 rounded border border-emerald-800">Live Feed</button>
+            </div>
+            <!-- Scoreboard Box -->
+            <div class="bg-brandCard p-6 rounded-2xl border border-emerald-900/40 text-center space-y-3">
+                <div class="flex justify-between items-center px-6">
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-emerald-950 flex items-center justify-center text-emerald-400 font-bold mb-1">TFC</div>
+                        <span class="text-xs font-bold text-white">Triples FC</span>
+                    </div>
+                    <div class="text-2xl font-black text-emerald-400 tracking-widest">0 - 0</div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-red-950 flex items-center justify-center text-red-400 font-bold mb-1">PFC</div>
+                        <span class="text-xs font-bold text-white">Plateau Utd</span>
+                    </div>
+                </div>
+                <p class="text-[11px] text-gray-400">NPFL Match Day 14 • Main Bowl Stadium</p>
+                <!-- Quick Navigation inside Match Centre -->
+                <div class="flex justify-center space-x-2 pt-2">
+                    <button onclick="switchScreen('lineup-tactics')" class="bg-brandCardHover hover:bg-emerald-950 text-emerald-300 text-xs px-3 py-1.5 rounded-lg border border-emerald-800/40">Lineup & Tactics</button>[span_16](start_span)[span_16](end_span)
+                    <button onclick="switchScreen('match-stats')" class="bg-brandCardHover hover:bg-emerald-950 text-emerald-300 text-xs px-3 py-1.5 rounded-lg border border-emerald-800/40">Match Stats</button>[span_17](start_span)[span_17](end_span)
+                    <button onclick="switchScreen('live-commentary')" class="bg-brandCardHover hover:bg-emerald-950 text-emerald-300 text-xs px-3 py-1.5 rounded-lg border border-emerald-800/40">Live Commentary</button>[span_18](start_span)[span_18](end_span)
+                </div>
+            </div>
+        </div>
+
+        <!-- 3a. LINEUP & TACTICS -->
+        <div id="screen-lineup-tactics" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400"><i class="fa-solid fa-chess-board mr-2"></i>Lineup & Tactics (4-3-3)</h3>[span_19](start_span)[span_19](end_span)
+                <button onclick="switchScreen('match-centre')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <!-- Pitch Visual Mockup -->
+            <div class="bg-emerald-950/60 rounded-xl p-4 border border-emerald-800/40 h-72 relative flex flex-col justify-between items-center text-center">
+                <div class="absolute inset-x-0 top-1/2 border-t border-emerald-800/40"></div>
+                <div class="text-[10px] text-emerald-400 bg-emerald-900/80 px-2 py-0.5 rounded">GK: Usman (1)</div>
+                <div class="flex space-x-6 text-[10px] text-emerald-300">
+                    <span>Ibrahim (4)</span><span>Bawa (5)</span><span>Ali (3)</span><span>Sani (2)</span>
+                </div>
+                <div class="flex space-x-6 text-[10px] text-emerald-300">
+                    <span>Bello (10)</span><span>Musa (8)</span><span>Danjuma (6)</span>
+                </div>
+                <div class="flex space-x-6 text-[10px] text-white font-bold">
+                    <span>Yakubu (7)</span><span>Garba (9)</span><span>Sunday (11)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3b. MATCH STATS -->
+        <div id="screen-match-stats" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400"><i class="fa-solid fa-chart-bar mr-2"></i>Match Statistics</h3>[span_20](start_span)[span_20](end_span)
+                <button onclick="switchScreen('match-centre')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <div class="flex justify-between text-gray-300 mb-1"><span>Possession</span><span>58% - 42%</span></div>
+                    <div class="w-full bg-brandDark rounded-full h-2 overflow-hidden flex"><div class="bg-emerald-500 w-[58%]"></div><div class="bg-red-500 w-[42%]"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-gray-300 mb-1"><span>Shots on Target</span><span>6 - 3</span></div>
+                    <div class="w-full bg-brandDark rounded-full h-2 overflow-hidden flex"><div class="bg-emerald-500 w-[66%]"></div><div class="bg-red-500 w-[34%]"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-gray-300 mb-1"><span>Pass Accuracy</span><span>84% - 76%</span></div>
+                    <div class="w-full bg-brandDark rounded-full h-2 overflow-hidden flex"><div class="bg-emerald-500 w-[84%]"></div><div class="bg-red-500 w-[16%]"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3c. LIVE COMMENTARY -->
+        <div id="screen-live-commentary" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400"><i class="fa-solid fa-tower-broadcast mr-2"></i>Live Commentary</h3>[span_21](start_span)[span_21](end_span)
+                <button onclick="switchScreen('match-centre')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div class="flex space-x-3 items-start border-l-2 border-emerald-500 pl-3 py-1">
+                    <span class="text-emerald-400 font-bold">45'</span>
+                    <p class="text-gray-300">Half time whistle blows. Triples FC 0 - 0 Plateau United.</p>
+                </div>
+                <div class="flex space-x-3 items-start border-l-2 border-gray-700 pl-3 py-1">
+                    <span class="text-gray-400 font-bold">32'</span>
+                    <p class="text-gray-300">Great tackle by K. Ibrahim to break up a dangerous counter-attack.</p>
+                </div>
+                <div class="flex space-x-3 items-start border-l-2 border-gray-700 pl-3 py-1">
+                    <span class="text-gray-400 font-bold">14'</span>
+                    <p class="text-gray-300">Yellow card awarded to Plateau Utd defender for a late challenge on S. Bello.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. SHOP PAGE JOURNEY -->
+        <div id="screen-shop-page" class="screen space-y-4 max-w-lg mx-auto">
+            <div class="flex justify-between items-center bg-brandCard p-4 rounded-xl border border-emerald-900/30">
+                <button onclick="switchScreen('main-view')" class="text-xs text-emerald-400 hover:underline"><i class="fa-solid fa-arrow-left mr-1"></i> Back</button>[span_22](start_span)[span_22](end_span)
+                <span class="text-xs font-bold text-white uppercase tracking-wider">Official Club Store</span>[span_23](start_span)[span_23](end_span)
+                <span class="text-xs text-emerald-400 font-bold">Cart (1)</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="bg-brandCard p-4 rounded-xl border border-emerald-900/30 space-y-3">
+                    <div class="h-36 bg-emerald-950/60 rounded-lg flex items-center justify-center text-emerald-400 text-3xl">👕</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Official Home Jersey 2026</h4>[span_24](start_span)[span_24](end_span)
+                        <p class="text-xs text-emerald-400 font-bold mt-1">₦25,000</p>
+                    </div>
+                    <button onclick="switchScreen('product-detail')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark text-xs font-bold py-2 rounded-lg transition">View Details</button>[span_25](start_span)[span_25](end_span)
+                </div>
+                <div class="bg-brandCard p-4 rounded-xl border border-emerald-900/30 space-y-3">
+                    <div class="h-36 bg-emerald-950/60 rounded-lg flex items-center justify-center text-emerald-400 text-3xl">🎽</div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">Away Match Training Kit</h4>
+                        <p class="text-xs text-emerald-400 font-bold mt-1">₦20,000</p>
+                    </div>
+                    <button onclick="switchScreen('product-detail')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark text-xs font-bold py-2 rounded-lg transition">View Details</button>[span_26](start_span)[span_26](end_span)
+                </div>
+            </div>
+        </div>
+
+        <!-- 4a. PRODUCT DETAIL -->
+        <div id="screen-product-detail" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400">Product Detail</h3>[span_27](start_span)[span_27](end_span)
+                <button onclick="switchScreen('shop-page')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div class="h-40 bg-emerald-950 rounded-xl flex items-center justify-center text-emerald-400 text-4xl">👕</div>
+                <h4 class="font-bold text-sm text-white">Official Home Jersey 2026</h4>
+                <p class="text-gray-300 text-[11px]">Breathable high-performance athletic fabric featuring Triples FC crest and emerald green traditional motif accents.</p>
+                <div class="flex space-x-2">
+                    <span class="px-2.5 py-1 rounded bg-brandDark border border-emerald-800 text-white font-medium">S</span>
+                    <span class="px-2.5 py-1 rounded bg-emerald-600 text-white font-bold">M</span>
+                    <span class="px-2.5 py-1 rounded bg-brandDark border border-emerald-800 text-white font-medium">L</span>
+                    <span class="px-2.5 py-1 rounded bg-brandDark border border-emerald-800 text-white font-medium">XL</span>
+                </div>
+                <button onclick="switchScreen('order-detail')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold py-2.5 rounded-xl transition">Buy Now (₦25,000)</button>[span_28](start_span)[span_28](end_span)
+            </div>
+        </div>
+
+        <!-- 5. MY PROFILE JOURNEY -->
+        <div id="screen-my-profile" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400"><i class="fa-solid fa-id-card mr-2"></i>My Profile & Season Ticket</h3>[span_29](start_span)[span_29](end_span)
+                <button onclick="switchScreen('main-view')" class="text-xs text-gray-400 hover:text-white">Close</button>
+            </div>
+            <!-- Digital Ticket Box -->
+            <div class="bg-gradient-to-br from-brandDark to-emerald-950 p-4 rounded-xl border border-emerald-500/40 text-center space-y-3">
+                <div class="flex justify-between text-[10px] text-emerald-400 font-semibold uppercase">
+                    <span>Ticket #125</span>[span_30](start_span)[span_30](end_span)
+                    <span>VIP Elite Access</span>
+                </div>
+                <div class="w-24 h-24 mx-auto bg-white p-2 rounded-lg flex items-center justify-center">
+                    <!-- Placeholder QR Graphic -->
+                    <div class="w-full h-full bg-gray-900 grid grid-cols-4 gap-1 p-1">
+                        <div class="bg-white"></div><div class="bg-white"></div><div class="bg-gray-900"></div><div class="bg-white"></div>
+                        <div class="bg-gray-900"></div><div class="bg-white"></div><div class="bg-white"></div><div class="bg-gray-900"></div>
+                        <div class="bg-white"></div><div class="bg-gray-900"></div><div class="bg-white"></div><div class="bg-white"></div>
+                        <div class="bg-white"></div><div class="bg-white"></div><div class="bg-gray-900"></div><div class="bg-white"></div>
+                    </div>
+                </div>
+                <p class="text-[10px] text-gray-300">Scan at stadium turnstile for entry</p>
+            </div>
+            <!-- Profile Actions -->
+            <div class="grid grid-cols-2 gap-2 pt-2">
+                <button onclick="switchScreen('order-detail')" class="bg-brandDark hover:bg-emerald-950 text-emerald-300 border border-emerald-800/40 text-xs py-2 rounded-xl transition">View Orders</button>[span_31](start_span)[span_31](end_span)
+                <button onclick="switchScreen('edit-profile')" class="bg-brandDark hover:bg-emerald-950 text-emerald-300 border border-emerald-800/40 text-xs py-2 rounded-xl transition">Edit Profile</button>[span_32](start_span)[span_32](end_span)
+            </div>
+        </div>
+
+        <!-- 5a. ORDER DETAIL -->
+        <div id="screen-order-detail" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400">Order Detail #456</h3>[span_33](start_span)[span_33](end_span)
+                <button onclick="switchScreen('my-profile')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="bg-brandDark p-4 rounded-xl space-y-2 text-xs">
+                <div class="flex justify-between text-gray-300"><span>Item</span><span>Official Home Jersey 2026 (Size M)</span></div>
+                <div class="flex justify-between text-gray-300"><span>Status</span><span class="text-emerald-400 font-semibold">Confirmed / Shipped</span></div>
+                <div class="flex justify-between text-gray-300"><span>Total Paid</span><span class="text-white font-bold">₦25,000</span></div>
+                <div class="pt-3 border-t border-emerald-900/40 text-center">
+                    <div class="font-mono text-[10px] text-gray-400 tracking-widest bg-gray-900 py-1.5 rounded">|||||| |||| ||||| |||||||</div>
+                    <span class="text-[9px] text-gray-500">Tracking Barcode</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5b. EDIT PROFILE -->
+        <div id="screen-edit-profile" class="screen max-w-md mx-auto bg-brandCard p-6 rounded-2xl border border-emerald-900/40 space-y-4 shadow-xl">
+            <div class="flex justify-between items-center border-b border-emerald-900/30 pb-3">
+                <h3 class="font-bold text-sm uppercase text-emerald-400">Edit Profile</h3>[span_34](start_span)[span_34](end_span)
+                <button onclick="switchScreen('my-profile')" class="text-xs text-gray-400 hover:text-white">Back</button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block text-[11px] font-semibold text-gray-300 mb-1">Full Name</label>
+                    <input type="text" value="Support Member" class="w-full bg-brandDark border border-emerald-900/60 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-gray-300 mb-1">Phone Number</label>
+                    <input type="text" value="+234 800 000 0000" class="w-full bg-brandDark border border-emerald-900/60 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <button onclick="switchScreen('my-profile')" class="w-full bg-emerald-500 hover:bg-emerald-600 text-brandDark font-bold py-2.5 rounded-xl transition">Save Changes</button>[span_35](start_span)[span_35](end_span)
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-brandCard border-t border-emerald-900/30 mt-8 py-6 px-4 text-center text-xs text-gray-400 space-y-3">
+        <div class="flex justify-center space-x-4 text-emerald-400 text-sm">
+            <a href="#" class="hover:text-emerald-300"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="hover:text-emerald-300"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-emerald-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-emerald-300"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <div class="max-w-md mx-auto flex gap-2">
+            <input type="email" placeholder="Subscribe to newsletter..." class="w-full bg-brandDark border border-emerald-900/60 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-emerald-500">
+            <button class="bg-emerald-500 text-brandDark font-bold px-4 py-1.5 rounded-xl hover:bg-emerald-600 transition">Join</button>
+        </div>
+        <p class="text-[10px] text-gray-500">© 2026 Triples FC. All Rights Reserved. Privacy Policy • Terms & Conditions</p>[span_36](start_span)[span_36](end_span)
+    </footer>
+
+    <!-- Script to handle interactive screen switching -->
+    <script>
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(el => {
+                el.classList.remove('active');
+            });
+            const target = document.getElementById('screen-id-' + screenId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
